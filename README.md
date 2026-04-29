@@ -22,4 +22,4 @@ Willkommen auf meinem GitHub-Profil! Mein Fokus liegt auf der Schnittstelle zwis
 Ich freue mich immer über neuen Austausch, sei es über Automatisierung, KI-gestütztes Programmieren oder spannende Projekte:
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/maximilian-k%C3%B6hlenbeck-06982b330/])
-- 🐦 [Twitter / X](https://x.com/max_koeh8/])
+- 🐦 [Twitter / X](https://x.com/max_koeh8)
