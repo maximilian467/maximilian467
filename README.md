@@ -1,14 +1,13 @@
 # Hi! 👋 Ich bin Maximilian 
 
-**Dualer Student für Automatisierungstechnik @ KUKA & HSB 
+**Dualer Student für Automatisierungstechnik @ KUKA & HSB**
 
 Willkommen auf meinem GitHub-Profil! Mein Fokus liegt auf der Schnittstelle zwischen Automatisierung, Hardware und smarter Software.
 
 ### 👨‍💻 Über mich
 
 - 🎓 Ich studiere aktuell dual **Automatisierungstechnik** an der Hochschule Bremen.
-- ⚙️ Meine Praxisphasen verbringe ich bei **KUKA**.
-- 🤖 **Mein Coding-Ansatz:** Ich nutze  KI-Agents, um meine Ideen in funktionalen Code zu verwandeln.
+- ⚙️ Meine Praxisphasen verbringe ich bei **KUKA**
 - 🌱 Aktuell vertiefe ich meine Grundlagen-Kenntnisse in: **Python, C++(Mikrocontroller) und Java**.
 
 ### ⚡ Tech & Tools
@@ -23,4 +22,4 @@ Willkommen auf meinem GitHub-Profil! Mein Fokus liegt auf der Schnittstelle zwis
 Ich freue mich immer über neuen Austausch, sei es über Automatisierung, KI-gestütztes Programmieren oder spannende Projekte:
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/maximilian-k%C3%B6hlenbeck-06982b330/])
-- 🐦 [Twitter / X](https://x.com/max_koeh8])
+- 🐦 [Twitter / X](https://x.com/max_koeh8/])
