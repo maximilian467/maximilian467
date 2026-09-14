@@ -1,24 +1,36 @@
-# Hi! 👋 Ich bin Maximilian 
+# Maximilian Köhlenbeck
 
-**Dualer Student für Automatisierungstechnik**
+Automation Engineering student @ KUKA & Hochschule Bremen (HSB), building AI, robotics and automation systems.
 
-Willkommen auf meinem GitHub-Profil! Mein Fokus liegt auf der Schnittstelle zwischen Automatisierung, Hardware und smarter Software.
+Interested in reinforcement learning, physical AI and software that interacts with the real world.
 
-### 👨‍💻 Über mich
+## Currently building
 
-- 🎓 Ich studiere aktuell dual **Automatisierungstechnik** 
-- 🌱 Aktuell vertiefe ich meine Grundlagen-Kenntnisse in: **Python, C++(Mikrocontroller), Claude Code**
+- **Reinforcement learning & control:** I trained a CartPole policy with PPO (Stable-Baselines3); it now runs live in the browser on my [website](https://maximilian467.github.io/en/). Currently working on a double pendulum, with NVIDIA Isaac Lab as the next step.
+- **3D printer optimization with KUKA:** improving a printer, including a nozzle offset calibration I built myself.
+- **Local AI tools:** speech and vision systems that run offline on a laptop, without cloud services.
 
-### ⚡ Tech & Tools
-<p align="left">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
-</p>
+## Selected projects
 
-### 📫 Lass uns vernetzen!
+| Project | What it is | Links |
+|---|---|---|
+| **WhisperFlow** | Offline system-wide speech-to-text for Windows and Linux: press a hotkey, speak, and the transcript is pasted at the cursor. Runs faster-whisper locally on the CPU. | [Code](https://github.com/maximilian467/WhisperFlow) |
+| **Portfolio website** | Static bilingual Astro site. Includes my PPO CartPole policy running in the browser, with tests and a CI pipeline that verifies the policy before each deploy. | [Code](https://github.com/maximilian467/maximilian467.github.io) · [Live](https://maximilian467.github.io/en/) |
+| **n8n automation portfolio** | Two LLM-based n8n workflows (invoice extraction, email triage) designed around validation, alerting and human-in-the-loop decisions. | [Code](https://github.com/maximilian467/n8n-automation-portfolio) |
 
-Ich freue mich immer über neuen Austausch, sei es über Automatisierung, KI-gestütztes Programmieren oder spannende Projekte:
+Some projects are not public, for example **Wächter**, an offline assistant that sees through a camera, listens and talks back. They are described on my [website](https://maximilian467.github.io/en/).
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/maximilian-k%C3%B6hlenbeck-06982b330/])
-- 🐦 [Twitter / X](https://x.com/max_koeh8)
+## Technologies
+
+- **AI / ML:** faster-whisper, local models (Ollama), Gymnasium, Stable-Baselines3 (PPO), NVIDIA Isaac Lab (just getting started)
+- **Software / Web:** Python, TypeScript, Astro, Next.js
+- **Automation / Hardware:** n8n, 3D printing
+- **Tools:** Git, GitHub Actions
+
+## How I work
+
+AI-assisted engineering: I use coding agents such as Claude Code and Codex for implementation. I own the architecture, requirements, experiments, debugging, integration and validation, and I make sure I understand the system that comes out of it.
+
+## Links
+
+[Website](https://maximilian467.github.io/en/) · [LinkedIn](https://www.linkedin.com/in/maximilian-k%C3%B6hlenbeck) · [Email](mailto:m.koehlenbeck@koehlenbeck.com) · [X](https://x.com/max_koeh8)
