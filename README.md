@@ -6,7 +6,7 @@ Interested in reinforcement learning, physical AI and software that interacts wi
 
 ## Currently building
 
-- **Reinforcement learning & control:** I trained a CartPole policy with PPO (Stable-Baselines3); it now runs live in the browser on my [website](https://maximilian467.github.io/en/). Currently working on a double pendulum, with NVIDIA Isaac Lab as the next step.
+- **Reinforcement learning & control:** currently working on multi-state double-pendulum control using SAC in MuJoCo. An earlier CartPole policy I trained with PPO (Stable-Baselines3) runs live in the browser on my [website](https://maximilian467.github.io/en/).
 - **3D printer optimization with KUKA:** improving a printer, including a nozzle offset calibration I built myself.
 - **Local AI tools:** speech and vision systems that run offline on a laptop, without cloud services.
 
@@ -22,7 +22,7 @@ Some projects are not public, for example **Wächter**, an offline assistant tha
 
 ## Technologies
 
-- **AI / ML:** faster-whisper, local models (Ollama), Gymnasium, Stable-Baselines3 (PPO), NVIDIA Isaac Lab (just getting started)
+- **AI / ML:** reinforcement learning (SAC), MuJoCo, Gymnasium and Stable-Baselines3 (earlier CartPole PPO policy), faster-whisper, local models (Ollama)
 - **Software / Web:** Python, TypeScript, Astro, Next.js
 - **Automation / Hardware:** n8n, 3D printing
 - **Tools:** Git, GitHub Actions
