@@ -1,0 +1,40 @@
+{
+  "login": "maximilian467",
+  "name": "Maximilian Köhlenbeck",
+  "location": "Bremen, Germany",
+  "intro": [
+    "Automation Engineering student at KUKA and Hochschule Bremen.",
+    "I build with reinforcement learning, robotics and physical AI."
+  ],
+  "now": {
+    "text": "Building a Sesame Robot and training it with reinforcement learning.",
+    "status": "in progress"
+  },
+  "work": [
+    {
+      "title": "Developer Island",
+      "line": "A Dynamic Island for the Windows desktop. C#, WinUI 3.",
+      "stat": { "stars": "Developer-Island" }
+    },
+    {
+      "title": "Double pendulum policy",
+      "line": "One TQC policy holds four poses and runs live in the browser.",
+      "stat": { "text": "live demo" }
+    },
+    {
+      "title": "Mobile Robotics Hackathon",
+      "line": "A robot arm that sorts waste. CeTI, TU Dresden.",
+      "stat": { "text": "1st place", "accent": true }
+    },
+    {
+      "title": "Helpy",
+      "line": "Captures an expert's judgment while they work. Hack-Nation 7.",
+      "stat": { "text": "live demo" }
+    },
+    {
+      "title": "ControlBench",
+      "line": "A web app that compares reinforcement learning algorithms.",
+      "stat": { "stars": "ControlBench" }
+    }
+  ]
+}
