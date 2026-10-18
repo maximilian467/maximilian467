@@ -4,7 +4,9 @@
 //   node scripts/sync-tokens.mjs [--push]
 //
 // Counted per assistant message: input + output + cache writes + cache reads. Claude Code repeats the
-// usage block on every content block of a message, so events are de-duplicated by message.id + requestId.
+// usage block on every content block of a message (thinking, text, tool use), so events are de-duplicated by
+// message.id + requestId, keeping the largest count when the output count grows across those lines.
+// Summing every line instead roughly multiplies the total by 2.5.
 // Claude Code deletes old transcripts after a while, so each day keeps the highest count ever seen
 // instead of being recomputed from whatever is still on disk.
 import { execFileSync } from 'node:child_process';
@@ -27,8 +29,7 @@ function jsonlFiles(dir) {
 }
 
 function countDays() {
-  const seen = new Set();
-  const days = {};
+  const messages = new Map();
   for (const file of jsonlFiles(transcripts)) {
     for (const line of readFileSync(file, 'utf8').split('\n')) {
       if (!line.includes('"usage"')) continue;
@@ -37,13 +38,13 @@ function countDays() {
       const usage = event.message?.usage;
       if (!usage || !event.timestamp) continue;
       const key = `${event.message.id ?? ''}|${event.requestId ?? ''}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      const day = new Date(event.timestamp).toLocaleDateString('sv-SE', { timeZone });
-      days[day] = (days[day] ?? 0) + (usage.input_tokens ?? 0) + (usage.output_tokens ?? 0)
+      const count = (usage.input_tokens ?? 0) + (usage.output_tokens ?? 0)
         + (usage.cache_creation_input_tokens ?? 0) + (usage.cache_read_input_tokens ?? 0);
+      if (count > (messages.get(key)?.count ?? -1)) messages.set(key, { count, day: new Date(event.timestamp).toLocaleDateString('sv-SE', { timeZone }) });
     }
   }
+  const days = {};
+  for (const { day, count } of messages.values()) days[day] = (days[day] ?? 0) + count;
   return days;
 }
 
