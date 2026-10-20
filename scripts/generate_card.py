@@ -60,7 +60,8 @@ def fetch_github(login: str, repos: list[str]) -> dict:
     }}"""
     data = graphql(query, {"login": login})
     days = [d for week in data["user"]["contributionsCollection"]["contributionCalendar"]["weeks"] for d in week["contributionDays"]]
-    days = [d for d in days if d["date"] <= date.today().isoformat()]
+    # Today is still in progress and would always end the line at zero, so the line stops at yesterday.
+    days = [d for d in days if d["date"] < date.today().isoformat()]
     stars = {name: data[f"r{i}"]["stargazerCount"] for i, name in enumerate(repos)}
     return {"activity": [d["contributionCount"] for d in days[-30:]], "stars": stars}
 
@@ -157,7 +158,7 @@ def render(theme: str, profile: dict, github: dict, tokens: dict, synced: str) -
     parts.append(f'<polyline points="{line}" fill="none" stroke="{t["accent"]}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>')
     parts.append(f'<line x1="{PAD}" y1="{chart_y + chart_h:.1f}" x2="{PAD + chart_w:.1f}" y2="{chart_y + chart_h:.1f}" stroke="{t["rule"]}" stroke-width="1"/>')
     parts.append(text(PAD, chart_y + chart_h + 20, "contributions, last 30 days", font=MONO, size=11, fill=t["muted"]))
-    parts.append(text(PAD + chart_w, chart_y + chart_h + 20, "today", font=MONO, size=11, fill=t["muted"], anchor="end"))
+    parts.append(text(PAD + chart_w, chart_y + chart_h + 20, "yesterday", font=MONO, size=11, fill=t["muted"], anchor="end"))
     parts.append(text(right, y + 66, f"{tokens['total']:,}", font=SERIF, size=46, fill=t["ink"], spacing=-0.5))
     parts.append(text(right, y + 92, "tokens processed with Claude Code", font=MONO, size=11.5, fill=t["muted"]))
     parts.append(text(right, y + 110, f"incl. cache reads, since {format_since(tokens['since'])}", font=MONO, size=11.5, fill=t["muted"]))
