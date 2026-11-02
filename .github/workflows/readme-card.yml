@@ -20,26 +20,36 @@ jobs:
   card:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # Check out the current tip of main, not the commit that triggered the run.
+      # A queued run would otherwise redraw on top of an outdated README.
+      - uses: actions/checkout@v5
+        with:
+          ref: main
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Draw the card
+      - name: Draw and commit the card
         env:
           # Contributions and star counts are public, so the built-in token is enough
           GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/generate_card.py
-
-      - name: Commit if the card changed
         run: |
-          git diff --quiet -- assets/ && exit 0
-          # New query string so GitHub's image cache picks up the new card
-          sed -i -E "s/card-(light|dark)\.svg\?v=[0-9]+/card-\1.svg?v=$(date +%s)/g" README.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/ README.md
-          git commit -m "chore: redraw README card"
-          git pull --rebase
-          git push
+          # If main moved in the meantime, start over from it instead of rebasing,
+          # because two redraws always conflict on the README query string
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/generate_card.py
+            git diff --quiet -- assets/ && exit 0
+            # New query string so GitHub's image cache picks up the new card
+            sed -i -E "s/card-(light|dark)\.svg\?v=[0-9]+/card-\1.svg?v=$(date +%s)/g" README.md
+            git add assets/ README.md
+            git commit -m "chore: redraw README card"
+            git push origin HEAD:main && exit 0
+            echo "Push rejected, main moved. Retrying ($attempt/3)."
+            sleep 5
+          done
+          exit 1
